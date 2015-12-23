@@ -1,0 +1,12 @@
+master:
+  image: docker.iwanna.xyz:5000/mpi
+  command: '/bin/bash -c "mpirun --host {{slave1}},{{slave2}} python /data/LDA/ConCurrentLDA.py"'
+  container_name: master
+slave1:
+  image: docker.iwanna.xyz:5000/mpi
+  command: '/usr/sbin/sshd -D'
+  container_name: slave1
+slave2:
+  image: docker.iwanna.xyz:5000/mpi
+  command: '/usr/sbin/sshd -D'
+  container_name: slave2
