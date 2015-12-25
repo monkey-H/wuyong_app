@@ -1,6 +1,6 @@
 master:
   image: docker.iwanna.xyz:5000/mpi
-  command: '/bin/bash -c "cd /data/LDA && mpirun --mca btl_tcp_if_include eth0 --host {{slave1}},{{slave2}} python ConCurrentLDA.py"'
+  command: '/bin/bash -c "cd /nap/LDA && mpirun --mca btl_tcp_if_include eth0 --host {{slave1}},{{slave2}} python ConCurrentLDA.py"'
   container_name: master
   links:
     - slave1
